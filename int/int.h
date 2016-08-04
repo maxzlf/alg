@@ -12,5 +12,6 @@ void shellSort(int array[], unsigned int n);
 void mergeSort(int array[], unsigned int n);
 void quickSort(int array[], unsigned int n);
 void heapSort(int array[], unsigned int n);
+int binarySearch(const int array[], unsigned int n, int target);
 
 #endif

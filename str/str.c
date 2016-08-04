@@ -31,3 +31,44 @@ void allorder(char *array)
 {
 	_allorder(array, NULL);
 }
+
+char *revsStr(char *const str)
+{
+	assert(NULL != str);
+	int len = strlen(str);
+
+	int left, right;
+	for (left = 0, right = len - 1; left < right; left++, right--)
+	{
+		SWAP(str[left], str[right]);
+	}
+	return str;
+}
+
+/**
+ * 把一个字符串的大写字母移到字符串末尾，且字符相对顺序不变
+ */
+char *uperend(char *str)
+{
+	assert(NULL != str);
+	int right = strlen(str);
+	int index;
+
+	for (index = right - 1; index >= 0; index--)
+	{
+		if (isupper(str[index]))
+		{
+			int i;
+			char tmp = str[index];
+			for (i = index; i < right - 1; i++)
+			{
+				str[i] = str[i+1];
+			}
+			str[i] = tmp;
+			right--;
+		}
+	}
+	return str;
+}	
+
+

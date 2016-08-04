@@ -66,3 +66,24 @@ long msss(const int array[], unsigned int n)
 	return maxsum;
 }
 
+int binarySearch(const int array[], unsigned int n, int target)
+{
+	assert(NULL != array);
+
+	int head = 0, tail = n -1;
+	while (head <= tail)
+	{
+		int middle = (head + tail) / 2;
+		if (target < array[middle])
+		{
+			tail = middle - 1;
+		}
+		else if (target > array[middle])
+		{
+			head = middle + 1;
+		} else return middle;
+	}
+	return -1;
+}
+
+

@@ -3,6 +3,8 @@
 #include "other/other.h"
 #include "int/int.h"
 #include "str/str.h"
+#include "link/link.h"
+#include "tree/tree.h"
 
 void fillarray(int array[], unsigned int n)
 {
@@ -21,29 +23,36 @@ void print_array(const int array[], unsigned int n)
 	int i;
 	for (i = 0; i < n; i++)
 	{
-		printf("%-4d", array[i]);
+		printf("%-5d", array[i]);
 	}
 	printf("\n");
 }
 
 int main(int argc, char *argv[])
 {
-	int array[10];
-	fillarray(array, ARRAYLEN(array));
-	print_array(array, ARRAYLEN(array));
-	// selectSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	// bubbleSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	// insertSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	// mergeSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	// shellSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	// quickSort(array, ARRAYLEN(array));
-	// print_array(array, ARRAYLEN(array));
-	heapSort(array, ARRAYLEN(array));
-	print_array(array, ARRAYLEN(array));
+	init_rnd();
+	// int array[256];
+	// unsigned int arrlen = ARRAYLEN(array);
+	// fillarray(array, arrlen);
+	// print_array(array, arrlen);
+	// selectSort(array, arrlen);
+	// print_array(array, arrlen);
+	// bubbleSort(array, arrlen);
+	// print_array(array, arrlen);
+	// insertSort(array, arrlen);
+	// print_array(array, arrlen);
+	// mergeSort(array, arrlen);
+	// print_array(array, arrlen);
+	// shellSort(array, arrlen);
+	// print_array(array, arrlen);
+	// quickSort(array, arrlen);
+	// print_array(array, arrlen);
+	// heapSort(array, arrlen);
+	// print_array(array, arrlen);
+	if (argc != 2) return 0;
+	tnode *tree = buildBinaryTree(atoi(argv[1]));
+	printTree(tree);
+	deleteBinaryTree(tree);
 	return 0;
 }
+

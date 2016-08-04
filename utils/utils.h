@@ -29,4 +29,10 @@
 void init_rnd();
 int rnd(int begin, int end);
 
+typedef struct S_NODE
+{
+  int value;
+  struct S_NODE *pstnext;
+} snode;
+
 #endif
