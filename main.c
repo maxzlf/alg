@@ -49,10 +49,7 @@ int main(int argc, char *argv[])
 	// print_array(array, arrlen);
 	// heapSort(array, arrlen);
 	// print_array(array, arrlen);
-	if (argc != 2) return 0;
-	tnode *tree = buildBinaryTree(atoi(argv[1]));
-	printTree(tree);
-	deleteBinaryTree(tree);
+	printf("%d\n", lcs(argv[1], argv[2]));
 	return 0;
 }
 

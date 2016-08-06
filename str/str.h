@@ -3,6 +3,7 @@
 
 void allorder(char *array);
 char *revsStr(char * const str);
-char *uperend(char *str);
+char *uper2end(char *str);
+unsigned int lcs(const char *strm, const char *strn);
 
 #endif

@@ -48,7 +48,7 @@ char *revsStr(char *const str)
 /**
  * 把一个字符串的大写字母移到字符串末尾，且字符相对顺序不变
  */
-char *uperend(char *str)
+char *uper2end(char *str)
 {
 	assert(NULL != str);
 	int right = strlen(str);
@@ -70,5 +70,54 @@ char *uperend(char *str)
 	}
 	return str;
 }	
+
+
+unsigned int lcs(const char *strm, const char *strn)
+{
+	if (NULL == strm || NULL == strn) return 0;
+
+	int m = strlen(strm) + 1;
+	int n = strlen(strn) + 1;
+	int size = m * n * sizeof(int);
+	int *mn = (int *)malloc(size);
+	memset(mn, '\0', size);
+
+	int i, j;
+	for (i = 1; i < m; i++)
+	{
+		for (j = 1; j < n; j++)
+		{
+			int max = TMAX(mn[(i-1)*n + j-1], mn[i*n + j-1], mn[(i-1)*n + j]);
+			if (strm[i-1] == strn[j-1])
+			{
+				mn[i*n + j] = mn[(i-1)*n + j-1] + 1;
+			}
+			else
+			{
+				mn[i*n + j] = max;
+			}
+		}
+	}
+
+	printf("lcs table\n");
+	for (i = 0; i < m; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			printf("%-4d", mn[i*n + j]);
+		}
+		printf("\n");
+	}
+
+	int result = mn[(m-1)*n + n-1];
+	free(mn);
+	return result;
+}
+
+
+
+
+
+
 
 
