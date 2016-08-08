@@ -17,7 +17,7 @@ void fillarray(int array[], unsigned int n)
 }
 
 void print_array(const int array[], unsigned int n)
-{	
+{
 	assert(NULL != array);
 
 	int i;
@@ -28,28 +28,18 @@ void print_array(const int array[], unsigned int n)
 	printf("\n");
 }
 
+void _args()
+{
+	LOG_WARN("opps, something wrong.");
+}
+
 int main(int argc, char *argv[])
 {
 	init_rnd();
-	// int array[256];
-	// unsigned int arrlen = ARRAYLEN(array);
-	// fillarray(array, arrlen);
-	// print_array(array, arrlen);
-	// selectSort(array, arrlen);
-	// print_array(array, arrlen);
-	// bubbleSort(array, arrlen);
-	// print_array(array, arrlen);
-	// insertSort(array, arrlen);
-	// print_array(array, arrlen);
-	// mergeSort(array, arrlen);
-	// print_array(array, arrlen);
-	// shellSort(array, arrlen);
-	// print_array(array, arrlen);
-	// quickSort(array, arrlen);
-	// print_array(array, arrlen);
-	// heapSort(array, arrlen);
-	// print_array(array, arrlen);
-	printf("%d\n", lcs(argv[1], argv[2]));
-	return 0;
+	int n = 100;
+	while (n-- > 0)
+	{
+		printf("%-4ld", random());
+	}
+    return 0;
 }
-

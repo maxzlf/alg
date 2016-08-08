@@ -13,7 +13,7 @@ static void _allorder(char * const array, char *tmp)
 
 	int i;
 	for (i = 0; i < n; i++)
-	{			
+	{
 		int j;
 		bool skip = false;
 		for (j = i-1; j >= 0; j--)
@@ -69,7 +69,7 @@ char *uper2end(char *str)
 		}
 	}
 	return str;
-}	
+}
 
 
 unsigned int lcs(const char *strm, const char *strn)
@@ -114,10 +114,34 @@ unsigned int lcs(const char *strm, const char *strn)
 	return result;
 }
 
+void kmp(const char* strm, const char* strn)
+{
+	if (NULL == strm || NULL == strn) return;
 
+	int mlen = strlen(strm);
+	int nlen = strlen(strn);
 
+	int *pi = (int *)malloc(nlen * sizeof(int));
+	int k = 0, i;
+	for (i = 1; i < nlen; i++)
+	{
+		while (k > 0 && strn[i] != strn[k]) k = pi[k-1];
+		if (strn[i] == strn[k]) k++;
+		pi[i] = k;
+	}
 
+	int j;
+	k = 0;
+	for (j = 0; j < mlen; j++)
+	{
+		while (k > 0 && strm[j] != strn[k]) k = pi[k-1];
+		if (strm[j] == strn[k]) k++;
+		if (k >= nlen)
+		{
+			printf("[%d-%d]\n", j-k+1, j);
+			k = pi[k-1];
+		}
+	}
 
-
-
-
+	free(pi);
+}
